@@ -2,6 +2,7 @@ package hu.bme.aut.booksearch;
 
 import android.app.Application;
 
+import hu.bme.aut.booksearch.interactor.InteractorModule;
 import hu.bme.aut.booksearch.ui.UIModule;
 
 public class BookSearchApplication extends Application {
@@ -15,6 +16,8 @@ public class BookSearchApplication extends Application {
                 DaggerBookSearchApplicationComponent.builder().
                         uIModule(
                                 new UIModule(this)
-                        ).build();
+                        ).interactorModule(
+                                new InteractorModule())
+                        .build();
     }
 }

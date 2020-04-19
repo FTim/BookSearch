@@ -1,9 +1,7 @@
 package hu.bme.aut.booksearch.interactor;
 
-import javax.inject.Inject;
 
 public class WelcomeTextInteractor {
-    @Inject
     public WelcomeTextInteractor(){}
 
     public String getWelcomeText(){
