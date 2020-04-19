@@ -67,7 +67,7 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
         viewHolder.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FavActivity) context).removeBook(booksList.get(viewHolder.getPosition()), position);
+                ((FavActivity) context).removeBook(booksList.get(viewHolder.getPosition()), viewHolder.getPosition());
             }
         });
     }
