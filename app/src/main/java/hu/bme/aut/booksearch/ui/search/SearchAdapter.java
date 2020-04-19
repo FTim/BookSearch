@@ -61,20 +61,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         viewHolder.authorTV.setText(booksList.get(position).getAuthor());
         viewHolder.titleTV.setText(booksList.get(position).getTitle());
 
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SearchActivity) context).showMoreInfo(booksList.get(position).getInfoUrl());
+                ((SearchActivity) context).showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
             }
         });
         viewHolder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SearchActivity) context).addToFavs(booksList.get(position));
+                ((SearchActivity) context).addToFavs(booksList.get(viewHolder.getPosition()));
             }
         });
     }
