@@ -41,7 +41,7 @@ public class BookSearchInteractor {
                 result.addAll(response.body().getDocs());
             }
         } catch (Exception e) {
-            Log.d("BookSearchInteractor", e.getMessage());
+            Log.d("BookSearchInteractor", String.valueOf(e.getMessage()));
             return result;
         }
         return result;

@@ -3,10 +3,16 @@ package hu.bme.aut.booksearch.interactor;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import hu.bme.aut.booksearch.BookSearchApplication;
 import hu.bme.aut.booksearch.model.Book;
 
 public class BookFavInteractor {
-    public BookFavInteractor(){}
+    @Inject
+    public BookFavInteractor(){
+        BookSearchApplication.injector.inject(this);
+    }
 
     public List<Book> getBooks(){
         ArrayList<Book> result = new ArrayList<Book>();
