@@ -1,33 +1,52 @@
 package hu.bme.aut.booksearch.interactor;
 
+import android.database.sqlite.SQLiteConstraintException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import hu.bme.aut.booksearch.BookSearchApplication;
+import hu.bme.aut.booksearch.db.BookDao;
 import hu.bme.aut.booksearch.model.Book;
+import hu.bme.aut.booksearch.utilities.Utilities;
 
 public class BookFavInteractor {
+    BookDao dao;
     @Inject
-    public BookFavInteractor(){
+    public BookFavInteractor(BookDao dao){
+        this.dao=dao;
         BookSearchApplication.injector.inject(this);
     }
 
     public List<Book> getBooks(){
-        ArrayList<Book> result = new ArrayList<Book>();
-        //TODO: API call
-        //TODO: handle search by title/author differently!!!
-
+        List<Book> result = dao.getAll();
 
         return result;
     }
 
-    public void addBookToFavs(Book book){
-        //TODO: DB
+    public String addBookToFavs(Book book){
+        try{
+            dao.insertAll(book);
+            return Utilities.ADDED;
+        }catch (Exception e){
+            if(e.getClass()== SQLiteConstraintException.class){
+                return Utilities.EXISTS;
+            }
+
+        }
+        return Utilities.DBEROOR;
 
     }
-    public void removeBookFromFavs(Book book){
-        //TODO: DB
+    public String removeBookFromFavs(Book book){
+        try{
+            dao.delete(book);
+            return Utilities.REMOVED;
+        }catch (Exception e)
+        {
+            return Utilities.DBEROOR;
+        }
+
     }
 }

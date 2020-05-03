@@ -1,5 +1,11 @@
 package hu.bme.aut.booksearch.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -7,25 +13,31 @@ import java.util.List;
 
 import hu.bme.aut.booksearch.utilities.Utilities;
 
+@Entity
 public class Book {
     @SerializedName("author_name")
+    @Ignore
     private List<String> authorName = new ArrayList<String>();
 
     @SerializedName("first_publish_year")
+    @ColumnInfo(name = "year")
     private Integer firstPublishYear = null;
 
     @SerializedName("subtitle")
+    @ColumnInfo(name = "subtitle")
     private String subtitle = null;
 
     @SerializedName("title")
+    @ColumnInfo(name = "title")
     private String title = null;
 
     @SerializedName("key")
-    private String key = null;
+    @PrimaryKey
+    @NonNull
+    private String key;
 
+    @ColumnInfo(name = "authors")
     private String authors;
-    private String infoUrl;
-
 
     public String getAuthors() {
         return authors;
@@ -44,13 +56,10 @@ public class Book {
     }
 
     public String getInfoUrl() {
-        return infoUrl;
+        String result= Utilities.BASE_ADDRESS;
+        result=result.concat(key);
+        return  result;
     }
-
-    public void setInfoUrl(String infoUrl) {
-        this.infoUrl = infoUrl;
-    }
-
 
     public List<String> getAuthorName() { return authorName; }
     public void setAuthorName(List<String> authorName) {
@@ -72,10 +81,5 @@ public class Book {
     public void setSubtitle(String subtitle) { this.subtitle = subtitle; }
 
     public String getKey() { return key; }
-    public void setKey(String key) {
-        this.key = key;
-        String url= Utilities.BASE_ADDRESS;
-        url=url.concat(key);
-        this.setInfoUrl(url);
-    }
+    public void setKey(String key) { this.key = key; }
 }

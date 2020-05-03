@@ -11,4 +11,5 @@ public interface SearchScreen {
 
     void addToFavs(Book book);
 
+    void addedToFavs(String result);
 }

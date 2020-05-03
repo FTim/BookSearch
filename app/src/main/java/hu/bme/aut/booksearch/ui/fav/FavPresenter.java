@@ -1,5 +1,7 @@
 package hu.bme.aut.booksearch.ui.fav;
 
+import android.os.AsyncTask;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,13 +30,42 @@ public class FavPresenter extends Presenter<FavScreen> {
     }
 
     public void getBooks(){
-
-        List<Book> results = bookFavInteractor.getBooks();
-        screen.getBooks(results);
+        GetFavBooksAsync getFavBooksAsync=new GetFavBooksAsync();
+        getFavBooksAsync.execute();
     }
 
     public void removeFromFavs(Book b){
-        bookFavInteractor.removeBookFromFavs(b);
+        RemoveFavBookAsync removeFavBookAsync=new RemoveFavBookAsync();
+        removeFavBookAsync.execute(b);
+    }
+
+    //push DB access to another thread
+    private class GetFavBooksAsync extends AsyncTask<Void, Void, List<Book>> {
+
+        @Override
+        protected List<Book> doInBackground(Void... voids) {
+            List<Book> result = bookFavInteractor.getBooks();
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(List<Book> books) {
+            screen.getBooks(books);
+        }
+    }
+
+    private class RemoveFavBookAsync extends AsyncTask<Book, Void, String>{
+
+        @Override
+        protected String doInBackground(Book... books) {
+            String result = bookFavInteractor.removeBookFromFavs(books[0]);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            screen.removedBook(result);
+        }
     }
 
 }
