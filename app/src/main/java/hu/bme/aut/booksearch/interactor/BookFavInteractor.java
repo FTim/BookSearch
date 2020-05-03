@@ -12,7 +12,7 @@ public class BookFavInteractor {
         ArrayList<Book> result = new ArrayList<Book>();
         //TODO: API call
         //TODO: handle search by title/author differently!!!
-        
+
 
         return result;
     }
