@@ -8,6 +8,7 @@ import hu.bme.aut.booksearch.interactor.BookFavInteractor;
 import hu.bme.aut.booksearch.interactor.BookSearchInteractor;
 import hu.bme.aut.booksearch.model.Book;
 import hu.bme.aut.booksearch.ui.Presenter;
+import hu.bme.aut.booksearch.utilities.Utilities;
 
 public class SearchPresenter extends Presenter<SearchScreen> {
     private BookSearchInteractor bookSearchInteractor;
@@ -31,8 +32,8 @@ public class SearchPresenter extends Presenter<SearchScreen> {
 
     public void getBooks(boolean titleChecked, boolean authorChecked, String value){
         String type="";
-        if(authorChecked == true) type="author";
-        else type="title";
+        if(authorChecked == true) type= Utilities.AUTHOR;
+        else type=Utilities.TITLE;
         List<Book> results = bookSearchInteractor.getBooks(value, type);
         screen.getBooks(results);
     }

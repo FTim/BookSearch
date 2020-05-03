@@ -20,8 +20,14 @@ public interface BookSearchApi {
      */
 
     @GET("search.json")
-    Call<SearchResponse> searchJsonGet(
-            @Query("author") String author, @Query("title") String title
+    Call<SearchResponse> searchJsonGetAuthor(
+            @Query("author") String author
+    );
+
+
+    @GET("search.json")
+    Call<SearchResponse> searchJsonGetTitle(
+            @Query("title") String title
     );
 
 
