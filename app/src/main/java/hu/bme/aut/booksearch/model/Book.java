@@ -20,7 +20,7 @@ public class Book {
     private List<String> authorName = new ArrayList<String>();
 
     @SerializedName("first_publish_year")
-    @ColumnInfo(name = "first_publish_year")
+    @ColumnInfo(name = "year")
     private Integer firstPublishYear = null;
 
     @SerializedName("subtitle")

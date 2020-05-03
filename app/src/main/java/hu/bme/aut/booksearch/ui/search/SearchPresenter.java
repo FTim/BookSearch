@@ -41,7 +41,8 @@ public class SearchPresenter extends Presenter<SearchScreen> {
     }
 
     public void addToFavs(Book book){
-        bookFavInteractor.addBookToFavs(book);
+        AddFavBookAsync addFavBookAsync=new AddFavBookAsync();
+        addFavBookAsync.execute(book);
     }
 
 
@@ -69,5 +70,20 @@ public class SearchPresenter extends Presenter<SearchScreen> {
         }
     }
 
+    //push DB access to another thread
+
+    private class AddFavBookAsync extends AsyncTask<Book, Void, String>{
+
+        @Override
+        protected String doInBackground(Book... books) {
+            String result = bookFavInteractor.addBookToFavs(books[0]);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            screen.addedToFavs(result);
+        }
+    }
 
 }

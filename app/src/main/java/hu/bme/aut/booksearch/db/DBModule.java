@@ -21,8 +21,8 @@ public class DBModule {
     @Provides
     @Singleton
     public BookDao provideBookDao(){
-        BookDatabase db = Room.databaseBuilder(context,
-                BookDatabase.class, "book-database").build();
+        BooksDatabase db = Room.databaseBuilder(context,
+                BooksDatabase.class, "book-database").fallbackToDestructiveMigration().build();
         return db.bookDao();
     }
 }

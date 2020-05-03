@@ -145,18 +145,20 @@ public class SearchActivity extends AppCompatActivity
 
     @Override
     public void showMoreInfo(String uri){
-        //TODO: pass correct url
-        String url="https://www.google.com";
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
+        i.setData(Uri.parse(uri));
         startActivity(i);
     }
 
     @Override
     public void addToFavs(Book book){
         searchPresenter.addToFavs(book);
+    }
+
+    @Override
+    public void addedToFavs(String result) {
         Snackbar.make(drawer,
-                "Added",
+                result,
                 Snackbar.LENGTH_LONG
         ).setAction(R.string.action_hide, new View.OnClickListener() {
             @Override

@@ -11,4 +11,6 @@ public interface FavScreen {
     void showMoreInfo(String uri);
 
     void removeBook(Book b, int index);
+
+    void removedBook(String result);
 }

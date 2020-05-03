@@ -14,9 +14,8 @@ public class BookSearchApplication extends Application {
 
         injector =
                 DaggerBookSearchApplicationComponent.builder().
-                        uIModule(
-                                new UIModule(this)
-                        ).dBModule(new DBModule((this))
-                        ).build();
+                        uIModule(new UIModule(this)).
+                        dBModule(new DBModule((this))).
+                        build();
     }
 }

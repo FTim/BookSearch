@@ -25,6 +25,7 @@ import hu.bme.aut.booksearch.R;
 import hu.bme.aut.booksearch.model.Book;
 import hu.bme.aut.booksearch.ui.main.MainActivity;
 import hu.bme.aut.booksearch.ui.search.SearchActivity;
+import hu.bme.aut.booksearch.utilities.Utilities;
 
 public class FavActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, FavScreen {
@@ -131,19 +132,23 @@ public class FavActivity extends AppCompatActivity
 
     @Override
     public void showMoreInfo(String uri){
-        //TODO: pass correct url
-        String url="https://www.google.com";
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
+        i.setData(Uri.parse(uri));
         startActivity(i);
     }
 
+    private int removeIndex;
     @Override
     public void removeBook(Book b, int index){
         favPresenter.removeFromFavs(b);
-        favAdapter.removeBook(index);
+        removeIndex=index;
+    }
+
+    @Override
+    public void removedBook(String result){
+        if(result.equals(Utilities.REMOVED)) favAdapter.removeBook(removeIndex);
         Snackbar.make(drawer,
-                "Removed",
+                result,
                 Snackbar.LENGTH_LONG
         ).setAction(R.string.action_hide, new View.OnClickListener() {
             @Override
