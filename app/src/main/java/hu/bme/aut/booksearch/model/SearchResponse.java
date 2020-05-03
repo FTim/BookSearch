@@ -1,6 +1,7 @@
 package hu.bme.aut.booksearch.model;
 
 
+import java.util.List;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -8,24 +9,32 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Response for OpenLibrary search, cannot change structure
  **/
-public class SearchResponse   {
+public class SearchResponse {
 
+    /**
+     * Starting index - used for paging
+     * Not used in the app
+     **/
     @SerializedName("start")
     private Integer start = null;
 
+    /**
+     * Number of books found
+     * Not used in the app
+     **/
     @SerializedName("num_found")
     private Integer num_Found = null;
 
     @SerializedName("numFound")
     private Integer numFound = null;
 
-    @SerializedName("docs")
-    private SearchResponseDocs docs = null;
-
-
-
     /**
+     * List of books
+     * docs = books
      **/
+    @SerializedName("docs")
+    private List<Book> docs = null;
+
     public Integer getStart() {
         return start;
     }
@@ -33,9 +42,6 @@ public class SearchResponse   {
         this.start = start;
     }
 
-
-    /**
-     **/
     public Integer getNum_Found() {
         return num_Found;
     }
@@ -43,9 +49,6 @@ public class SearchResponse   {
         this.num_Found = numFound;
     }
 
-
-    /**
-     **/
     public Integer getNumFound() {
         return numFound;
     }
@@ -53,13 +56,10 @@ public class SearchResponse   {
         this.numFound = numFound;
     }
 
-
-    /**
-     **/
-    public SearchResponseDocs getDocs() {
+    public List<Book> getDocs() {
         return docs;
     }
-    public void setDocs(SearchResponseDocs docs) {
+    public void setDocs(List<Book> docs) {
         this.docs = docs;
     }
 }

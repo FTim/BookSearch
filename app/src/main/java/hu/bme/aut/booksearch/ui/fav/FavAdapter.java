@@ -55,7 +55,7 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final FavAdapter.ViewHolder viewHolder, final int position) {
-        viewHolder.authorTV.setText(booksList.get(position).getAuthor());
+        viewHolder.authorTV.setText(booksList.get(position).getAuthors());
         viewHolder.titleTV.setText(booksList.get(position).getTitle());
 
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
