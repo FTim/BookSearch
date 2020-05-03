@@ -6,28 +6,28 @@ import java.util.List;
 import javax.inject.Inject;
 
 import hu.bme.aut.booksearch.BookSearchApplication;
+import hu.bme.aut.booksearch.db.BookDao;
 import hu.bme.aut.booksearch.model.Book;
 
 public class BookFavInteractor {
+    BookDao dao;
     @Inject
-    public BookFavInteractor(){
+    public BookFavInteractor(BookDao dao){
+        this.dao=dao;
         BookSearchApplication.injector.inject(this);
     }
 
     public List<Book> getBooks(){
-        ArrayList<Book> result = new ArrayList<Book>();
-        //TODO: API call
-        //TODO: handle search by title/author differently!!!
-
+        List<Book> result = dao.getAll();
 
         return result;
     }
 
     public void addBookToFavs(Book book){
-        //TODO: DB
+        dao.insertAll(book);
 
     }
     public void removeBookFromFavs(Book book){
-        //TODO: DB
+        dao.delete(book);
     }
 }

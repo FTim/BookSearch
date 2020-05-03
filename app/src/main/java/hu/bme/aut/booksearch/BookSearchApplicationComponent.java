@@ -3,6 +3,7 @@ package hu.bme.aut.booksearch;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import hu.bme.aut.booksearch.db.DBModule;
 import hu.bme.aut.booksearch.interactor.BookFavInteractor;
 import hu.bme.aut.booksearch.interactor.BookSearchInteractor;
 //import hu.bme.aut.booksearch.interactor.InteractorModule;
@@ -17,7 +18,7 @@ import hu.bme.aut.booksearch.ui.search.SearchActivity;
 import hu.bme.aut.booksearch.ui.search.SearchPresenter;
 
 @Singleton
-@Component(modules = {UIModule.class, NetworkModule.class})
+@Component(modules = {UIModule.class, NetworkModule.class, DBModule.class})
 public interface BookSearchApplicationComponent {
     void inject(MainActivity mainActivity);
 
