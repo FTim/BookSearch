@@ -1,17 +1,50 @@
 package hu.bme.aut.booksearch.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import hu.bme.aut.booksearch.utilities.Utilities;
+
+@Entity
 public class Book {
-    private String author;
-    private String title;
-    private String infoUrl;
+    @SerializedName("author_name")
+    @Ignore
+    private List<String> authorName = new ArrayList<String>();
 
+    @SerializedName("first_publish_year")
+    @ColumnInfo(name = "year")
+    private Integer firstPublishYear = null;
 
-    public String getAuthor() {
-        return author;
+    @SerializedName("subtitle")
+    @ColumnInfo(name = "subtitle")
+    private String subtitle = null;
+
+    @SerializedName("title")
+    @ColumnInfo(name = "title")
+    private String title = null;
+
+    @SerializedName("key")
+    @PrimaryKey
+    @NonNull
+    private String key;
+
+    @ColumnInfo(name = "authors")
+    private String authors;
+
+    public String getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(String authors) {
+        this.authors = authors;
     }
 
     public String getTitle() {
@@ -23,10 +56,30 @@ public class Book {
     }
 
     public String getInfoUrl() {
-        return infoUrl;
+        String result= Utilities.BASE_ADDRESS;
+        result=result.concat(key);
+        return  result;
     }
 
-    public void setInfoUrl(String infoUrl) {
-        this.infoUrl = infoUrl;
+    public List<String> getAuthorName() { return authorName; }
+    public void setAuthorName(List<String> authorName) {
+        this.authorName = authorName;
+        this.authors="";
+        for(int i=0;i<authorName.size();i++) {
+            if (i == authorName.size() - 1) authors = authors.concat(authorName.get(i));
+            else {
+                authors = authors.concat(authorName.get(i));
+                authors = authors.concat(", ");
+            }
+        }
     }
+
+    public Integer getFirstPublishYear() { return firstPublishYear; }
+    public void setFirstPublishYear(Integer firstPublishYear) { this.firstPublishYear = firstPublishYear; }
+
+    public String getSubtitle() { return subtitle; }
+    public void setSubtitle(String subtitle) { this.subtitle = subtitle; }
+
+    public String getKey() { return key; }
+    public void setKey(String key) { this.key = key; }
 }
