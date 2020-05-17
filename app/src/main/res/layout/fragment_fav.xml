@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.fav.FavFragment"
     android:id="@+id/fav_fragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewFavBooks"
         android:layout_width="match_parent"

@@ -23,6 +23,8 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
 
         public TextView titleTV;
         public TextView authorTV;
+        public TextView subtitleTV;
+        public TextView yearTV;
         public Button infoBtn;
         public Button removeBtn;
 
@@ -31,6 +33,8 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
 
             titleTV = (TextView) itemView.findViewById(R.id.favBookTitle);
             authorTV = (TextView) itemView.findViewById(R.id.favBookAuthor);
+            subtitleTV = (TextView) itemView.findViewById(R.id.favBookSubitle);
+            yearTV = (TextView) itemView.findViewById(R.id.favBookYear);
             infoBtn = (Button) itemView.findViewById(R.id.favBookInfo);
             removeBtn = (Button) itemView.findViewById(R.id.favBookRemoveFav);
         }
@@ -62,6 +66,8 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
     public void onBindViewHolder(final FavAdapter.ViewHolder viewHolder, final int position) {
         viewHolder.authorTV.setText(booksList.get(position).getAuthors());
         viewHolder.titleTV.setText(booksList.get(position).getTitle());
+        viewHolder.subtitleTV.setText(booksList.get(position).getSubtitle());
+        viewHolder.yearTV.setText(booksList.get(position).getFirstPublishYearString());
 
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override

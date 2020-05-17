@@ -5,39 +5,46 @@
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment"
     android:id="@+id/search_fragment"
-    android:orientation="vertical">
-
-    <!-- TODO: Update blank fragment layout -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="search..."
-        android:id="@+id/searchBookValue"/>
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="15dp">
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:checkedButton="@id/searchBookTitle">
+        android:orientation="vertical"
+        android:checkedButton="@id/searchBookTitle"
+
+        >
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="author"
+            android:text="Search book with author like this..."
             android:id="@+id/searchBookAuthor"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="title"
+            android:text="Search book with title like this..."
             android:id="@+id/searchBookTitle"/>
     </RadioGroup>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="search..."
+        android:id="@+id/searchBookValue"
+        android:layout_margin="15dp"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search books"
-        android:id="@+id/searchBtn"/>
+        android:id="@+id/searchBtn"
+        android:background="@color/colorAccent"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewFoundBooks"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"/>
 
 </LinearLayout>

@@ -24,6 +24,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         public TextView titleTV;
         public TextView authorTV;
+        public TextView subtitleTV;
+        public TextView yearTV;
         public Button infoBtn;
         public Button addBtn;
 
@@ -32,6 +34,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
             titleTV = (TextView) itemView.findViewById(R.id.foundBookTitle);
             authorTV = (TextView) itemView.findViewById(R.id.foundBookAuthor);
+            subtitleTV = (TextView) itemView.findViewById(R.id.foundBookSubitle);
+            yearTV = (TextView) itemView.findViewById(R.id.foundBookYear);
             infoBtn = (Button) itemView.findViewById(R.id.foundBookInfo);
             addBtn = (Button) itemView.findViewById(R.id.foundBookAddFav);
         }
@@ -68,6 +72,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         viewHolder.authorTV.setText(booksList.get(position).getAuthors());
         viewHolder.titleTV.setText(booksList.get(position).getTitle());
+        viewHolder.subtitleTV.setText(booksList.get(position).getSubtitle());
+        viewHolder.yearTV.setText(booksList.get(position).getFirstPublishYearString());
 
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override

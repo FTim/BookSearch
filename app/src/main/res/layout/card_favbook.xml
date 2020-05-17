@@ -10,44 +10,72 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/favBookTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-black"
                 android:text="Title"/>
+        <TextView
+            android:id="@+id/favBookSubitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-black"
+            android:text="Subtitle"/>
+        <TextView
+            android:id="@+id/favBookYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-black"
+            android:text="Year"/>
 
             <TextView
                 android:id="@+id/favBookAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-black"
                 android:text="Author"/>
-        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            >
             <Button
                 android:id="@+id/favBookInfo"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="More info"/>
+                android:text="More info"
+                android:background="@color/colorAccent"
+                android:layout_marginRight="15dp"/>
 
             <Button
                 android:id="@+id/favBookRemoveFav"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Remove from favorites"/>
+                android:text="Remove from favorites"
+                android:background="@color/colorAccent"
+                android:layout_marginRight="15dp"/>
         </LinearLayout>
     </LinearLayout>
 
