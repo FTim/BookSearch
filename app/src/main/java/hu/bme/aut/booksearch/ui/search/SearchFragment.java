@@ -25,6 +25,8 @@ import hu.bme.aut.booksearch.R;
 import hu.bme.aut.booksearch.model.Book;
 import hu.bme.aut.booksearch.ui.main.MainActivity;
 
+import static android.support.v4.content.ContextCompat.getSystemService;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -57,11 +59,14 @@ public class SearchFragment extends Fragment implements SearchScreen {
         byTitleRBtn=view.findViewById((R.id.searchBookTitle));
         byAuthorRBtn=view.findViewById(R.id.searchBookAuthor);
         searchValue=view.findViewById(R.id.searchBookValue);
+
         Button searchBtn=view.findViewById(R.id.searchBtn);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity activity =(MainActivity) getActivity();
+                activity.hideKeyboard();
                 searchPresenter.getBooks(byTitleRBtn.isChecked(), byAuthorRBtn.isChecked(),searchValue.getText().toString());
             }
         });

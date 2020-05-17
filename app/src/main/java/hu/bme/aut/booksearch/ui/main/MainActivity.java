@@ -1,5 +1,6 @@
 package hu.bme.aut.booksearch.ui.main;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -11,10 +12,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 import hu.bme.aut.booksearch.R;
 import hu.bme.aut.booksearch.ui.fav.FavFragment;
 import hu.bme.aut.booksearch.ui.search.SearchFragment;
+
+import static android.support.v4.content.ContextCompat.getSystemService;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -82,4 +88,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             }
         }).show();
     }
-}
+
+    public void hideKeyboard(){
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
