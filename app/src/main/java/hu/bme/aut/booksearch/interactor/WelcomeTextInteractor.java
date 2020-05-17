@@ -13,6 +13,6 @@ public class WelcomeTextInteractor {
 
     public String getWelcomeText(){
         //TODO: API call if needed for this feature...
-        return "Books are good";
+        return "So many books, so little time...";
     }
 }
