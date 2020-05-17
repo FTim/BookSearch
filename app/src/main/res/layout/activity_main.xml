@@ -24,11 +24,11 @@
                 android:background="?attr/colorPrimary" />
         </android.support.design.widget.AppBarLayout>
 
-        <TextView
-            android:id="@+id/WelcomeTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Main activity"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_container">
+        </FrameLayout>
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
@@ -37,5 +37,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer" />
 </android.support.v4.widget.DrawerLayout>

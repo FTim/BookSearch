@@ -6,48 +6,70 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        >
+        <TextView
+            android:id="@+id/foundBookTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:singleLine="false"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-black"
+            android:text="Title"/>
+        <TextView
+            android:id="@+id/foundBookSubitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-black"
+            android:text="Subtitle"/>
+        <TextView
+            android:id="@+id/foundBookYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-black"
+            android:text="Year"/>
 
-            <TextView
-                android:id="@+id/foundBookTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"/>
+        <TextView
+            android:id="@+id/foundBookAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="14sp"
+            android:text="Author"/>
 
-            <TextView
-                android:id="@+id/foundBookAuthor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Author"/>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
             <Button
                 android:id="@+id/foundBookInfo"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="More info"/>
+                android:text="More info"
+                android:background="@color/colorAccent"
+                android:layout_marginRight="15dp"/>
 
             <Button
                 android:id="@+id/foundBookAddFav"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Add to favorites"/>
+                android:text="Add to favorites"
+                android:background="@color/colorAccent"
+                android:layout_marginRight="15dp"/>
         </LinearLayout>
     </LinearLayout>
 
