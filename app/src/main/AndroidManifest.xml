@@ -19,12 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.search.SearchActivity"
-            android:label="SearchActivity"/>
-        <activity
-            android:name=".ui.fav.FavActivity"
-            android:label="FavActivity"/>
     </application>
 
 </manifest>

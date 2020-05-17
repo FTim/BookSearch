@@ -7,6 +7,7 @@ import hu.bme.aut.booksearch.ui.Presenter;
 
 public class MainPresenter extends Presenter<MainScreen> {
     private WelcomeTextInteractor welcomeTextInteractor;
+
     @Inject
     public MainPresenter(WelcomeTextInteractor welcomeTextInteractor){
         this.welcomeTextInteractor=welcomeTextInteractor;

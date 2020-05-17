@@ -36,14 +36,19 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
         }
     }
     private List<Book> booksList;
-    private Context context;
+    //private Context context;
+    private FavFragment favFragment;
+
+    public void setFavFragment(FavFragment favFragment){
+        this.favFragment=favFragment;
+    }
 
     @Inject
     public FavAdapter(){
     }
 
     public void setBookList(List<Book> booksList){this.booksList=booksList;}
-    public void setActivityContext(Context context){this.context=context;}
+    //public void setActivityContext(Context context){this.context=context;}
 
     @Override
     public FavAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -61,13 +66,13 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FavActivity) context).showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
+                favFragment.showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
             }
         });
         viewHolder.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FavActivity) context).removeBook(booksList.get(viewHolder.getPosition()), viewHolder.getPosition());
+                favFragment.removeBook(booksList.get(viewHolder.getPosition()), viewHolder.getPosition());
             }
         });
     }

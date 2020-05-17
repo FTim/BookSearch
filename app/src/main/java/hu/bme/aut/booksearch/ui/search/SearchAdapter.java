@@ -38,15 +38,19 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     private List<Book> booksList;
-    private Context context;
+    private SearchFragment searchFragment;
 
     @Inject
     public SearchAdapter(){
     }
 
-    public void setActivityContext(Context context){
+    /*public void setActivityContext(Context context){
         this.context=context;
+    }*/
+    public void setSearchFragment(SearchFragment searchFragment){
+        this.searchFragment=searchFragment;
     }
+
 
     public void setBookList(List<Book> booksList) {
         this.booksList = booksList;
@@ -68,13 +72,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SearchActivity) context).showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
+
+                searchFragment.showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
             }
         });
         viewHolder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SearchActivity) context).addToFavs(booksList.get(viewHolder.getPosition()));
+                searchFragment.addToFavs(booksList.get(viewHolder.getPosition()));
             }
         });
     }
