@@ -1,7 +1,6 @@
 package hu.bme.aut.booksearch.ui.search;
 
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +23,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         public TextView titleTV;
         public TextView authorTV;
+        public TextView subtitleTV;
+        public TextView yearTV;
         public Button infoBtn;
         public Button addBtn;
 
@@ -32,21 +33,25 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
             titleTV = (TextView) itemView.findViewById(R.id.foundBookTitle);
             authorTV = (TextView) itemView.findViewById(R.id.foundBookAuthor);
+            subtitleTV = (TextView) itemView.findViewById(R.id.foundBookSubitle);
+            yearTV = (TextView) itemView.findViewById(R.id.foundBookYear);
             infoBtn = (Button) itemView.findViewById(R.id.foundBookInfo);
             addBtn = (Button) itemView.findViewById(R.id.foundBookAddFav);
         }
     }
 
     private List<Book> booksList;
-    private Context context;
+    private SearchFragment searchFragment;
 
     @Inject
     public SearchAdapter(){
     }
 
-    public void setActivityContext(Context context){
-        this.context=context;
+
+    public void setSearchFragment(SearchFragment searchFragment){
+        this.searchFragment=searchFragment;
     }
+
 
     public void setBookList(List<Book> booksList) {
         this.booksList = booksList;
@@ -64,17 +69,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         viewHolder.authorTV.setText(booksList.get(position).getAuthors());
         viewHolder.titleTV.setText(booksList.get(position).getTitle());
+        viewHolder.subtitleTV.setText(booksList.get(position).getSubtitle());
+        viewHolder.yearTV.setText(booksList.get(position).getFirstPublishYearString());
 
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SearchActivity) context).showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
+
+                searchFragment.showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
             }
         });
         viewHolder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SearchActivity) context).addToFavs(booksList.get(viewHolder.getPosition()));
+                searchFragment.addToFavs(booksList.get(viewHolder.getPosition()));
             }
         });
     }

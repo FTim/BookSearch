@@ -3,4 +3,15 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
     <string name="action_hide">Hide</string>
+    <string name="moreInfoString">More info</string>
+    <string name="removeFromFavorites">Remove from favorites</string>
+    <string name="addToFavorites">Add to favorites</string>
+    <string name="searchAuthorString">Search book with author like this...</string>
+    <string name="searchTitleString">Search book with title like this...</string>
+    <string name="searchString">search...</string>
+    <string name="searchBooksString">Search books</string>
+    <string name="booksString">Books</string>
+    <string name="homeNavString">Home</string>
+    <string name="searchNavString">Search</string>
+    <string name="favoritesNavString">Favorites</string>
 </resources>

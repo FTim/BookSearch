@@ -1,6 +1,5 @@
 package hu.bme.aut.booksearch.ui.fav;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +22,8 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
 
         public TextView titleTV;
         public TextView authorTV;
+        public TextView subtitleTV;
+        public TextView yearTV;
         public Button infoBtn;
         public Button removeBtn;
 
@@ -31,19 +32,24 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
 
             titleTV = (TextView) itemView.findViewById(R.id.favBookTitle);
             authorTV = (TextView) itemView.findViewById(R.id.favBookAuthor);
+            subtitleTV = (TextView) itemView.findViewById(R.id.favBookSubitle);
+            yearTV = (TextView) itemView.findViewById(R.id.favBookYear);
             infoBtn = (Button) itemView.findViewById(R.id.favBookInfo);
             removeBtn = (Button) itemView.findViewById(R.id.favBookRemoveFav);
         }
     }
     private List<Book> booksList;
-    private Context context;
+    private FavFragment favFragment;
+
+    public void setFavFragment(FavFragment favFragment){
+        this.favFragment=favFragment;
+    }
 
     @Inject
     public FavAdapter(){
     }
 
     public void setBookList(List<Book> booksList){this.booksList=booksList;}
-    public void setActivityContext(Context context){this.context=context;}
 
     @Override
     public FavAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -57,17 +63,19 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
     public void onBindViewHolder(final FavAdapter.ViewHolder viewHolder, final int position) {
         viewHolder.authorTV.setText(booksList.get(position).getAuthors());
         viewHolder.titleTV.setText(booksList.get(position).getTitle());
+        viewHolder.subtitleTV.setText(booksList.get(position).getSubtitle());
+        viewHolder.yearTV.setText(booksList.get(position).getFirstPublishYearString());
 
         viewHolder.infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FavActivity) context).showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
+                favFragment.showMoreInfo(booksList.get(viewHolder.getPosition()).getInfoUrl());
             }
         });
         viewHolder.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FavActivity) context).removeBook(booksList.get(viewHolder.getPosition()), viewHolder.getPosition());
+                favFragment.removeBook(booksList.get(viewHolder.getPosition()), viewHolder.getPosition());
             }
         });
     }

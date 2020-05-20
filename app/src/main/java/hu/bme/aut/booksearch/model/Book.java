@@ -37,9 +37,17 @@ public class Book {
     private String key;
 
     @ColumnInfo(name = "authors")
-    private String authors;
+    private String authors = "";
 
     public String getAuthors() {
+        if(!authors.isEmpty()) return authors;
+        for(int i=0;i<authorName.size();i++) {
+            if (i == authorName.size() - 1) authors = authors.concat(authorName.get(i));
+            else {
+                authors = authors.concat(authorName.get(i));
+                authors = authors.concat(", ");
+            }
+        }
         return authors;
     }
 
@@ -62,20 +70,11 @@ public class Book {
     }
 
     public List<String> getAuthorName() { return authorName; }
-    public void setAuthorName(List<String> authorName) {
-        this.authorName = authorName;
-        this.authors="";
-        for(int i=0;i<authorName.size();i++) {
-            if (i == authorName.size() - 1) authors = authors.concat(authorName.get(i));
-            else {
-                authors = authors.concat(authorName.get(i));
-                authors = authors.concat(", ");
-            }
-        }
-    }
+    public void setAuthorName(List<String> authorName) { this.authorName = authorName; }
 
     public Integer getFirstPublishYear() { return firstPublishYear; }
     public void setFirstPublishYear(Integer firstPublishYear) { this.firstPublishYear = firstPublishYear; }
+    public String getFirstPublishYearString(){if (firstPublishYear==null)return ""; else return firstPublishYear.toString();}
 
     public String getSubtitle() { return subtitle; }
     public void setSubtitle(String subtitle) { this.subtitle = subtitle; }

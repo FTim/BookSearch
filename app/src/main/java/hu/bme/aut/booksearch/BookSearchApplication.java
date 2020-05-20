@@ -3,7 +3,7 @@ package hu.bme.aut.booksearch;
 import android.app.Application;
 
 import hu.bme.aut.booksearch.db.DBModule;
-import hu.bme.aut.booksearch.ui.UIModule;
+import hu.bme.aut.booksearch.network.NetworkModule;
 
 public class BookSearchApplication extends Application {
     public static BookSearchApplicationComponent injector;
@@ -14,8 +14,8 @@ public class BookSearchApplication extends Application {
 
         injector =
                 DaggerBookSearchApplicationComponent.builder().
-                        uIModule(new UIModule(this)).
                         dBModule(new DBModule((this))).
+                        networkModule(new NetworkModule()).
                         build();
     }
 }

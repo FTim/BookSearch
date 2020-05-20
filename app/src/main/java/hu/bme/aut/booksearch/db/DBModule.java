@@ -22,7 +22,7 @@ public class DBModule {
     @Singleton
     public BookDao provideBookDao(){
         BooksDatabase db = Room.databaseBuilder(context,
-                BooksDatabase.class, "book-database").fallbackToDestructiveMigration().build();
+                BooksDatabase.class, "book-database").build();
         return db.bookDao();
     }
 }

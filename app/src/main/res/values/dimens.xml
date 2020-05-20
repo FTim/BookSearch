@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cardLayoutMargin">10dp</dimen>
+    <dimen name="LargeTextSize">16sp</dimen>
+    <dimen name="MediumTextSize">14sp</dimen>
+    <dimen name="SmallTextSize">12sp</dimen>
+    <dimen name="WelcomeTextSize">18sp</dimen>
+    <dimen name="NavHeaderTextSize">24sp</dimen>
+    <dimen name="NavHeaderSpacing">20dp</dimen>
+    <dimen name="NormalSpacing">15dp</dimen>
+    <dimen name="SmallSpacing">5dp</dimen>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/NormalSpacing"
+    tools:context=".ui.search.SearchFragment">
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/searchBookTitle"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/searchBookAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/searchAuthorString" />
+
+        <RadioButton
+            android:id="@+id/searchBookTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/searchTitleString" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/searchBookValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/NormalSpacing"
+        android:hint="@string/searchString" />
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="@string/searchBooksString" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewFoundBooks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/NormalSpacing" />
+
+</LinearLayout>

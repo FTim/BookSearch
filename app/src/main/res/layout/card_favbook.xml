@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    android:id="@+id/cardFoundBook"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardFoundBook"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
@@ -10,44 +9,72 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="@dimen/cardLayoutMargin"
+        android:layout_marginBottom="@dimen/cardLayoutMargin"
+        android:orientation="vertical"
+        android:padding="@dimen/NormalSpacing">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/favBookTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:fontFamily="sans-serif-black"
+            android:singleLine="false"
+            android:text="Title"
+            android:textSize="@dimen/LargeTextSize" />
 
-            <TextView
-                android:id="@+id/favBookTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"/>
+        <TextView
+            android:id="@+id/favBookSubitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:singleLine="false"
+            android:text="Subtitle"
+            android:textSize="@dimen/MediumTextSize" />
 
-            <TextView
-                android:id="@+id/favBookAuthor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Author"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/favBookYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:singleLine="false"
+            android:text="Year"
+            android:textSize="@dimen/SmallTextSize" />
+
+        <TextView
+            android:id="@+id/favBookAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:singleLine="false"
+            android:text="Author"
+            android:textSize="@dimen/LargeTextSize" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/SmallSpacing"
+            android:gravity="center"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/favBookInfo"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="More info"/>
+                android:layout_marginRight="@dimen/NormalSpacing"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:text="@string/moreInfoString" />
 
             <Button
                 android:id="@+id/favBookRemoveFav"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Remove from favorites"/>
+                android:layout_marginRight="@dimen/NormalSpacing"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:text="@string/removeFromFavorites" />
         </LinearLayout>
     </LinearLayout>
 
