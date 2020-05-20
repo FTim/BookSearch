@@ -1,7 +1,9 @@
 package hu.bme.aut.booksearch.db;
 
-import android.arch.persistence.room.Room;
+//import android.arch.persistence.room.Room;
 import android.content.Context;
+
+import androidx.room.Room;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
