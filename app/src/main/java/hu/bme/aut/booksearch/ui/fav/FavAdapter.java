@@ -1,6 +1,5 @@
 package hu.bme.aut.booksearch.ui.fav;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +39,6 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
         }
     }
     private List<Book> booksList;
-    //private Context context;
     private FavFragment favFragment;
 
     public void setFavFragment(FavFragment favFragment){
@@ -52,7 +50,6 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.ViewHolder> {
     }
 
     public void setBookList(List<Book> booksList){this.booksList=booksList;}
-    //public void setActivityContext(Context context){this.context=context;}
 
     @Override
     public FavAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {

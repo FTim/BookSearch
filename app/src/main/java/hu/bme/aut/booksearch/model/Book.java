@@ -37,10 +37,10 @@ public class Book {
     private String key;
 
     @ColumnInfo(name = "authors")
-    private String authors;
+    private String authors = "";
 
     public String getAuthors() {
-        this.authors="";
+        if(!authors.isEmpty()) return authors;
         for(int i=0;i<authorName.size();i++) {
             if (i == authorName.size() - 1) authors = authors.concat(authorName.get(i));
             else {
@@ -70,10 +70,7 @@ public class Book {
     }
 
     public List<String> getAuthorName() { return authorName; }
-    public void setAuthorName(List<String> authorName) {
-        this.authorName = authorName;
-
-    }
+    public void setAuthorName(List<String> authorName) { this.authorName = authorName; }
 
     public Integer getFirstPublishYear() { return firstPublishYear; }
     public void setFirstPublishYear(Integer firstPublishYear) { this.firstPublishYear = firstPublishYear; }

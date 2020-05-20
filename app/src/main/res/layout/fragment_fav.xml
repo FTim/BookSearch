@@ -6,7 +6,7 @@
     tools:context=".ui.fav.FavFragment"
     android:id="@+id/fav_fragment"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="@dimen/NormalSpacing">
 
 
     <android.support.v7.widget.RecyclerView

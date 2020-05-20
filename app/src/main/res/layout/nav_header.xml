@@ -5,13 +5,13 @@
     android:layout_centerHorizontal="true"
     android:layout_gravity="left"
     android:orientation="horizontal"
-    android:paddingTop="20dp">
+    android:paddingTop="@dimen/NavHeaderSpacing">
 
     <TextView
-        android:textSize="24dp"
-        android:text="Books"
+        android:textSize="@dimen/NavHeaderTextSize"
+        android:text="@string/booksString"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="@dimen/NavHeaderSpacing"/>
 
 </LinearLayout>

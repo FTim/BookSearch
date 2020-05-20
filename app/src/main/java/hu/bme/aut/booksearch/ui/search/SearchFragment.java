@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,9 +26,6 @@ import hu.bme.aut.booksearch.ui.main.MainActivity;
 
 import static android.support.v4.content.ContextCompat.getSystemService;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SearchFragment extends Fragment implements SearchScreen {
     private RecyclerView recycleViewBooksFound;
     private List<Book> booksList;
@@ -72,7 +68,6 @@ public class SearchFragment extends Fragment implements SearchScreen {
         });
 
         searchAdapter.setBookList(booksList);
-        //searchAdapter.setActivityContext(container.getContext());
         searchAdapter.setSearchFragment(this);
 
         recycleViewBooksFound = (RecyclerView) view.findViewById(

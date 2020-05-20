@@ -1,7 +1,6 @@
 package hu.bme.aut.booksearch.ui.search;
 
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,9 +47,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public SearchAdapter(){
     }
 
-    /*public void setActivityContext(Context context){
-        this.context=context;
-    }*/
+
     public void setSearchFragment(SearchFragment searchFragment){
         this.searchFragment=searchFragment;
     }
